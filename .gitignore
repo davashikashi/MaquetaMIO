@@ -1,0 +1,10 @@
+.vscode/
+Build/
+.vs/
+.git/
+Library/
+Logs/
+UserSettings/
+Maqueta MIO.sln
+Temp/
+Assembly-CSharp
