@@ -3,17 +3,7 @@ guid: e3c0a41b24b96ac478a8468214f995f4
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
-  externalObjects:
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: ground
-    second: {fileID: -3954252153447468787, guid: 3f3feb429ad80d94b953042b2c6850ee, type: 3}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: hotel_glas
-    second: {fileID: 3551488585781882592, guid: df9bc4df449bffb46816babf5f07fd80, type: 3}
+  externalObjects: {}
   materials:
     materialImportMode: 2
     materialName: 0
