@@ -19,11 +19,11 @@ public class PersonMovement : MonoBehaviour
         // Verifica si el estado de 'stop' cambió a true
         if (busMovement.stop1)
         {
-            people[0].transform.Translate(3.0f * Time.deltaTime * Vector3.forward);
+            people[0].transform.Translate(2.0f * Time.deltaTime * Vector3.forward);
         }
         if (busMovement.stop2)
         {
-            people[1].transform.Translate(3.0f * Time.deltaTime * Vector3.forward);
+            people[1].transform.Translate(2.0f * Time.deltaTime * Vector3.forward);
         }
         
     }

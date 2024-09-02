@@ -17,16 +17,19 @@ public class BusMovement : MonoBehaviour
     public bool stop1 = false;
     public bool stop2 = false;
     public bool fin = false;
-    private bool hasCollided = false;
 
     private Rigidbody rb;
     public List<BoxCollider> boxColliders = new List<BoxCollider>();
     public TextMeshProUGUI textElement;
+    public GameObject boton;
+
+    public AudioSource busMovement;
 
     // Start is called before the first frame update
     void Start()
     {
         rb = GetComponent<Rigidbody>();
+        busMovement.Play();
     }
     void OnTriggerEnter(Collider other)
     {
@@ -52,6 +55,8 @@ public class BusMovement : MonoBehaviour
             direction = -1;
             shouldRotate = true;
             textElement.text = "Fin del transcurso";
+            busMovement.Stop();
+            boton.SetActive(true);
         }
         if (other.gameObject.CompareTag("stop1"))
         {
@@ -59,9 +64,6 @@ public class BusMovement : MonoBehaviour
             textElement.text = "Parada 1";
             boxColliders[0].enabled = false;
             boxColliders[1].enabled = true;
-
-            // Marca que ya ha colisionado
-            hasCollided = true;
         }
         if (other.gameObject.CompareTag("stop2"))
         {
@@ -69,9 +71,6 @@ public class BusMovement : MonoBehaviour
             textElement.text = "Parada 2";
             boxColliders[0].enabled = false;
             boxColliders[1].enabled = true;
-
-            // Marca que ya ha colisionado
-            hasCollided = true;
         }
         if (other.gameObject.CompareTag("person"))
         {
@@ -85,13 +84,11 @@ public class BusMovement : MonoBehaviour
         // Cuando el objeto sale de la colisión, resetea la bandera
         if (other.gameObject.CompareTag("stop1"))
         {
-            hasCollided = false;
             boxColliders[0].enabled = true;
             boxColliders[1].enabled = false;
         }
         if (other.gameObject.CompareTag("stop2"))
         {
-            hasCollided = false;
             boxColliders[0].enabled = true;
             boxColliders[1].enabled = false;
         }
@@ -133,10 +130,6 @@ public class BusMovement : MonoBehaviour
         // Convertir la rotación a ángulos eulerianos
         Vector3 angulos = rotacion.eulerAngles;
         float RoY = Mathf.RoundToInt(angulos.y);
-        
-        // Debug.Log("Rotación en Y: " + RoY);
-        // Debug.Log("Direction: " + direction);
-        // Debug.Log("Target: "+ targetAngle);
 
         
         if(goDirection && shouldRotate && direction == 1 && RoY < targetAngle + 90)
