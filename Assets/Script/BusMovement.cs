@@ -61,14 +61,14 @@ public class BusMovement : MonoBehaviour
         if (other.gameObject.CompareTag("stop1"))
         {
             stop1 = true;
-            textElement.text = "Parada 1";
+            textElement.text = "Av 7 Cl 6";
             boxColliders[0].enabled = false;
             boxColliders[1].enabled = true;
         }
         if (other.gameObject.CompareTag("stop2"))
         {
             stop2 = true;
-            textElement.text = "Parada 2";
+            textElement.text = "Av 7 Cl 8";
             boxColliders[0].enabled = false;
             boxColliders[1].enabled = true;
         }
